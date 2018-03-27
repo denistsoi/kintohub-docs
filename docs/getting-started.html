@@ -1,0 +1,168 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>getting-started · Help Center</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="getting-started · Help Center"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kintohub.com/kintohub-docs/index.html"/><meta property="og:description" content="This guide will show you from start to finish how to create a microservice from scratch and get it up and running on Kintohub"/><link rel="shortcut icon" href="/kintohub-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/kintohub-docs/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/kintohub-docs/"><img class="logo" src="/kintohub-docs/img/logo-full-color.svg"/><h2 class="headerTitle">Help Center</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/kintohub-docs/docs/apidoc.html" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Getting Started</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Getting Started</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/kintohub-docs/docs/getting-started.html">getting-started</a></li><li class="navListItem"><a class="navItem" href="/kintohub-docs/docs/apidoc.html">How to document your code to work with Kintohub</a></li></ul></div><div class="navGroup navGroupActive"><h3>First Category</h3><ul><li class="navListItem"><a class="navItem" href="/kintohub-docs/docs/doc2.html">document number 2</a></li></ul></div><div class="navGroup navGroupActive"><h3>Second Category</h3><ul><li class="navListItem"><a class="navItem" href="/kintohub-docs/docs/doc3.html">This is document number 3</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>getting-started</h1></header><article><div><span><p>This guide will show you from start to finish how to create a microservice from scratch and get it up and running on Kintohub</p>
+<h2><a class="anchor" aria-hidden="true" id="how-can-my-code-work-on-kintohub"></a><a href="#how-can-my-code-work-on-kintohub" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How can my code work on Kintohub</h2>
+<ol>
+<li>your code must be on GitHub</li>
+<li>your code must have <code>Dockerfile</code>
+<ul>
+<li>the command used to run the production version must be exposed in <code>Dockerfile</code> using <code>EXPOSE</code></li>
+</ul></li>
+<li>the app must be listening to port <code>80</code> for production</li>
+<li>your code must be documented with our version of <a href="/kintohub-docs/docs/apidoc.html">apidoc</a></li>
+</ol>
+<blockquote>
+<p>if you must specify a hostname for the framework/library that you are using, you must use <code>0.0.0.0</code>. <code>localhost</code> and <code>127.0.0.1</code> won't work</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="creating-our-first-kintohub-nodejs"></a><a href="#creating-our-first-kintohub-nodejs" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating our first Kintohub (NodeJs)</h2>
+<blockquote>
+<p>at this moment we only support node version  8.9.4</p>
+</blockquote>
+<p>Let us try and create a simple hello world app locally and see how we would move that to a Kintohub</p>
+<h3><a class="anchor" aria-hidden="true" id="initialize-git-and-npm"></a><a href="#initialize-git-and-npm" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initialize git and npm</h3>
+<p>We will start by initializing our <code>package.json</code> and install <code>express</code> <em>(v4.16.3)</em></p>
+<pre><code class="hljs css bash">node -v <span class="hljs-comment"># must be 8.9.4</span>
+npm init -y
+npm install express
+</code></pre>
+<p>initialize as a git repo by running <code>git init</code></p>
+<blockquote>
+<p>don't forget to create <code>.gitignore</code> and add <code>node_modules</code></p>
+</blockquote>
+<p>Finally, create a new repository in GitHub, there are steps on how to connect to an existing repository in Github after you create one</p>
+<h3><a class="anchor" aria-hidden="true" id="create-a-simple-hello-world-app"></a><a href="#create-a-simple-hello-world-app" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a simple hello world app</h3>
+<blockquote>
+<p>You can check the source code for that app <a href="http://github/kintohub/node-example">here</a></p>
+</blockquote>
+<p>create <code>index.js</code> and add the following</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+<span class="hljs-keyword">const</span> PORT = process.env.PORT || <span class="hljs-string">'8000'</span>
+
+app.get(<span class="hljs-string">'/sample/:message'</span>, (req, res) =&gt;
+  res.send({
+    <span class="hljs-attr">data</span>: <span class="hljs-string">'Hello World'</span>,
+    <span class="hljs-attr">output</span>: req.params.message
+  })
+)
+
+app.listen(PORT, () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Example app listening on port <span class="hljs-subst">${PORT}</span>!`</span>))
+</code></pre>
+<p>This is a really simple app that listens to <code>/sample/:message</code> and returns dummy result</p>
+<p>let us update our scripts to include two commands for running it on local and production</p>
+<p>next is modifying <code>package.json</code> and add two scripts for running the app on local and prod</p>
+<pre><code class="hljs">{
+  ...
+  <span class="hljs-string">"scripts"</span>: {
+    <span class="hljs-string">"start"</span>: <span class="hljs-string">"node index.js"</span>,
+    <span class="hljs-string">"prod"</span>: <span class="hljs-string">"PORT=80 node index.js"</span>
+  }
+}
+</code></pre>
+<p>the difference is <code>npm start</code> now will run the app on port <code>8000</code> but <code>npm run prod</code> will run it on port <code>80</code></p>
+<h3><a class="anchor" aria-hidden="true" id="document-the-code"></a><a href="#document-the-code" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Document the code</h3>
+<p>you can read more about documenting your code to work with kintohub <a href="/kintohub-docs/docs/apidoc.html">here</a></p>
+<p>In order for the app to work with Kintohub, you need to document your code in a way that follows apidoc standard</p>
+<p>here is the updated <code>index.js</code> after documenting it</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+<span class="hljs-keyword">const</span> PORT = process.env.PORT || <span class="hljs-string">'8000'</span>
+
+<span class="hljs-comment">/**
+ * @api {get} /sample/{id} hello world sample request
+ * @apiName GetSample
+ * @apiParam (Url) {String} message the message to return
+ * @apiSuccess (Success_200) {String} data the hello world data
+ * @apiSuccess (Success_200) {String} output what the user entered in the url
+ */</span>
+app.get(<span class="hljs-string">'/sample/:message'</span>, (req, res) =&gt;
+  res.send({
+    <span class="hljs-attr">data</span>: <span class="hljs-string">'Hello World'</span>,
+    <span class="hljs-attr">output</span>: req.params.message
+  })
+)
+
+app.listen(PORT, () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Example app listening on port <span class="hljs-subst">${PORT}</span>!`</span>))
+</code></pre>
+<p>The last step is creating a <code>Dockerfile</code> that Kintohub needs to understand how to compile and run your app</p>
+<blockquote>
+<p>you don't need to use docker locally for this</p>
+</blockquote>
+<p>You can read more about <code>Dockerfile</code> samples <a href="docker-samples.md">here</a></p>
+<p>create <code>Dockerfile</code> with the following</p>
+<pre><code class="hljs"><span class="hljs-keyword">FROM</span> node:<span class="hljs-number">8.9</span>.<span class="hljs-number">4</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> mkdir -p app
+</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install
+</span>
+<span class="hljs-keyword">ENV</span> PORT=<span class="hljs-number">80</span>
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"npm"</span>,<span class="hljs-string">"run"</span>,<span class="hljs-string">"start"</span>]
+</span></code></pre>
+<p>The interesting part is the last line, you need to update the entry point depending on the project you are using</p>
+<p>the only rule that endpoint must</p>
+<ul>
+<li>expose the app on port <code>80</code></li>
+<li>if the hostname is required by the framework/lib then it has to be set to <code>0.0.0.0</code></li>
+</ul>
+<p>For our example <code>npm run prod</code> is running <code>PORT=80 node index.js</code> which satisfies these two requirements</p>
+<h2><a class="anchor" aria-hidden="true" id="create-a-kintohub"></a><a href="#create-a-kintohub" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a Kintohub</h2>
+<p>By this point, you should already have a GitHub repository that is compatible with Kintohub</p>
+<p>Next step is connecting your workspace to your GitHub account. Go to edit workspace and click on connect GitHub button.</p>
+<p>Now go to create Kintoblock page. Add a Kintoblock name <em>(name must be unique across all accounts)</em>, choose an existing repository and select the repository you just created. Set protocol to <code>HTTP</code> and language to <code>Node.js</code></p>
+<blockquote>
+<p>For the rest of the guide we are going to assume the name is <em><code>nodeexample</code></em></p>
+</blockquote>
+<blockquote>
+<p>endpoints are going to be in the following format <strong>http://{microservicename}<a href="http://.api.staging.kintohub.com">.api.staging.kintohub.com</a></strong></p>
+</blockquote>
+<blockquote>
+<p>Kintoblocks can't be accessed directly, it must be through Kintoapps, if you tried to go to <code>http://nodeexample.api.staging.kintohub.com/sample/hello</code> you will get an error.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="tag-latest-commit"></a><a href="#tag-latest-commit" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tag Latest Commit</h3>
+<p>After creating that Kintoblock, when you are in the Kintoblock manage page, navigate to the branch that you added your code to. And go to the <strong>Commits</strong> section.</p>
+<p>Make sure that the last commit you had is in recent commits and wait until it successfully builds. <em>(you have to refresh the page to get the latest build status update)</em></p>
+<p>After it successfully builds click <code>Tag Latest Commit</code> this allows you to add a tag to that commit <em>(similar to how git works)</em> so you can select that tag in a Kintoapp</p>
+<h2><a class="anchor" aria-hidden="true" id="create-a-kintoapp"></a><a href="#create-a-kintoapp" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a Kintoapp</h2>
+<p>We need to finally create a Kintoapp that includes <code>nodeexample</code></p>
+<blockquote>
+<p>Kintoapps can't live by themselves you must add kintoblocks for them to work</p>
+</blockquote>
+<p>Go to create Kintoapp page. Add a name and description. in the dependencies section search and select <code>nodeexample</code>. update the selector on the right to be the latest tag we just created.</p>
+<p>Click <code>Save Changes</code></p>
+<h3><a class="anchor" aria-hidden="true" id="tag-and-deploy"></a><a href="#tag-and-deploy" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tag and Deploy</h3>
+<p>after hitting <code>Save Changes</code> it should change to <code>Tag and Deploy</code>. tagging and deploying will bring our app online, let's click it and select the default <code>master</code> environment and add a version for the app <em>(Kintoapp version is not related to kintoblock version)</em>. After clicking Create now we have a live version that we can access</p>
+<h2><a class="anchor" aria-hidden="true" id="accessing-the-endpoints"></a><a href="#accessing-the-endpoints" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Accessing the endpoints</h2>
+<p>All endpoints are private by default. After deploying to the <code>master</code> environment go to the edit page to that environment.</p>
+<p>you will find <code>CLIENT ID</code> and <code>SECRET KEY</code> these are unique to each environment. you will need to auth first with them and get a token, that token will allow you to call the microservices inside that app</p>
+<p>The endpoint for authenticating the env is</p>
+<pre><code class="hljs">POST <span class="hljs-string">http:</span><span class="hljs-comment">//api.staging.kintohub.com/auth</span>
+</code></pre>
+<blockquote>
+<p>We are using <a href="https://httpie.org/">HTTPie</a> here (similar to CRUD) the samples below should work if you have it installed</p>
+</blockquote>
+<p>calling <code>/auth</code> and passing it the client and secret should return a token</p>
+<pre><code class="hljs css bash">http -v POST http://api.staging.kintohub.com/auth clientId=&lt;clientId&gt; clientSecret=&lt;clientSecret&gt;
+</code></pre>
+<p>returns</p>
+<pre><code class="hljs">{<span class="hljs-attr">"data"</span>:{<span class="hljs-attr">"token"</span>: <span class="hljs-string">"&lt;token&gt;"</span>}}
+</code></pre>
+<p>if we used that token and pass it as an Authorization header when we call any Kintoblock inside that Kintoapp it should work <em>(need to add 'Bearer' before the actual token)</em></p>
+<p>Finally, the following should work</p>
+<pre><code class="hljs css bash">http -v GET http://nodeexample.api.staging.kintohub.com/sample/hello Authorization:<span class="hljs-string">"Bearer &lt;token&gt;"</span>
+</code></pre>
+<p>Should return</p>
+<pre><code class="hljs">{<span class="hljs-attr">"data"</span>:<span class="hljs-string">"Hello World"</span>,<span class="hljs-attr">"output"</span>:<span class="hljs-string">"hello"</span>}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="apidoc.html">How to document your code to work with Kintohub →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#how-can-my-code-work-on-kintohub">How can my code work on Kintohub</a></li><li><a href="#creating-our-first-kintohub-nodejs">Creating our first Kintohub (NodeJs)</a><ul class="toc-headings"><li><a href="#initialize-git-and-npm">Initialize git and npm</a></li><li><a href="#create-a-simple-hello-world-app">Create a simple hello world app</a></li><li><a href="#document-the-code">Document the code</a></li></ul></li><li><a href="#create-a-kintohub">Create a Kintohub</a><ul class="toc-headings"><li><a href="#tag-latest-commit">Tag Latest Commit</a></li></ul></li><li><a href="#create-a-kintoapp">Create a Kintoapp</a><ul class="toc-headings"><li><a href="#tag-and-deploy">Tag and Deploy</a></li></ul></li><li><a href="#accessing-the-endpoints">Accessing the endpoints</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/kintohub-docs/" class="nav-home"><img src="/kintohub-docs/img/docusaurus.svg" alt="Help Center" width="66" height="58"/></a><div><h5>Docs</h5><a href="/kintohub-docs/docs/en/apidoc.html">Getting Started (or other categories)</a><a href="/kintohub-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/kintohub-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/kintohub-docs/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank">Twitter</a></div><div><h5>More</h5><a href="/kintohub-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/kintohub/kintohub-docs" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" class="fbOpenSource"><img src="/kintohub-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2018 Facebook Inc.</section></footer></div></body></html>
