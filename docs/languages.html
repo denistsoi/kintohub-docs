@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Languages · KintoHub Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Overview"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Languages · KintoHub Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kintohub.com/index.html"/><meta property="og:description" content="## Overview"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/kintohub-title-text.svg" alt="KintoHub Docs"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Docs</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Docs</h3><ul><li class="navListItem"><a class="navItem" href="/docs/getting-started.html">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/docker-examples.html">Dockerfile examples</a></li><li class="navListItem"><a class="navItem" href="/docs/apidoc.html">How to document your code to work with KintoHub</a></li><li class="navListItem"><a class="navItem" href="/docs/kintoapps.html">KintoApps</a></li><li class="navListItem"><a class="navItem" href="/docs/workspaces.html">Workspaces</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/languages.html">Languages</a></li><li class="navListItem"><a class="navItem" href="/docs/release-notes.html">Release Notes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Dependencies</h3><ul><li class="navListItem"><a class="navItem" href="/docs/custom-params.html">Custom Parameters</a></li><li class="navListItem"><a class="navItem" href="/docs/environmental-parameters.html">Environmental Parameters</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Accounts and Billing</h3><ul><li class="navListItem"><a class="navItem" href="/docs/accounts.html">Accounts</a></li><li class="navListItem"><a class="navItem" href="/docs/billing.html">Billing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Behind The Scenes</h3><ul><li class="navListItem"><a class="navItem" href="/docs/behind-the-scenes.html">Behind the Scenes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Common Questions</h3><ul><li class="navListItem"><a class="navItem" href="/docs/answers.html">Answers</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/kintohub/kintohub-docs/edit/master/docs/languages.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Languages</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
+<p>For each language we require a specific structure for your Dockerfile to be able to interpret it and make it run on our platform</p>
+<p>The Dockerfiles are language specific just like this one:</p>
+<pre><code class="hljs css languages- dockerfile"><span class="hljs-keyword">FROM</span> node:<span class="hljs-number">8.9</span>.<span class="hljs-number">4</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> mkdir -p app
+</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install
+</span>
+<span class="hljs-keyword">ENV</span> PORT=<span class="hljs-number">80</span>
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"npm"</span>,<span class="hljs-string">"run"</span>,<span class="hljs-string">"start"</span>]
+</span></code></pre>
+<p>You can modify the Dockerfile in any way you find more convenient to use ANY build tool you want (inside Docker)
+however you will find a common behavior - set of rules for each language:</p>
+<ul>
+<li><p>Some are using multi-stage build with a base image (with all the dependencies) and a lighter runtime image to run the app</p></li>
+<li><p>You need to export your compiled code or source files in the folder named <code>app</code></p></li>
+<li><p>You will need to include a complementary file (depending on your language) to allow dependencies to be downloaded: like a <code>Gemfile</code> for <code>Ruby</code> or <code>requirements.txt</code> for <code>Python</code> with <code>pip</code>)</p></li>
+<li><p>expose the app on port <code>80</code></p></li>
+<li><p>if the hostname is required by the framework/lib then it has to be set to <code>0.0.0.0</code></p></li>
+<li><p>we would recommend to keep the same <code>ENTRYPOINT</code> as the example but depending on the language you can freely modify it</p></li>
+<li><p>Environment variables (ENV command) are not supported yet but is part of the backlog and will be coming soon</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="c-dotnet"></a><a href="#c-dotnet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>C# / dotnet</h2>
+<p>We support dotnet 2.0</p>
+<p>Dockerfile:</p>
+<pre><code class="hljs css languages- dockerfile"><span class="hljs-keyword">FROM</span> microsoft/dotnet:<span class="hljs-number">2.0</span>-sdk AS build
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span>
+<span class="hljs-comment"># Copy everything else and build</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . ./
+</span><span class="hljs-keyword">RUN</span><span class="bash"> dotnet restore
+</span>
+<span class="hljs-comment"># Build the specific project and output it into /app/out for KintoHub to process</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app/{Enter-Project-Folder}
+</span><span class="hljs-keyword">RUN</span><span class="bash"> dotnet publish -c Release -o ../out
+</span>
+<span class="hljs-comment"># Runtime image</span>
+<span class="hljs-keyword">FROM</span> microsoft/dotnet:<span class="hljs-number">2.0</span>-runtime
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span><span class="hljs-keyword">COPY</span><span class="bash"> --from=build /app/out .
+</span>
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"dotnet"</span>, <span class="hljs-string">"{Enter-Project-Output}.dll"</span>]
+</span></code></pre>
+<ul>
+<li>You need to modify it to reference the correct dll and path, change <code>{Enter-Project-Folder}</code> by your project folder and <code>{Enter-Project-Output}</code> by your dll name</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="go"></a><a href="#go" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Go</h2>
+<p>We support Golang version 1.10</p>
+<p>See <a href="https://github.com/kintohub/go-examples">https://github.com/kintohub/go-examples</a> for a fully working example</p>
+<p>Dockerfile:</p>
+<pre><code class="hljs css languages- dockerfile"><span class="hljs-keyword">FROM</span> golang:<span class="hljs-number">1.10</span>.<span class="hljs-number">0</span>
+
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /go/src/app
+</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . .
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> go get -d -v ./...
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> go install -v ./...
+</span>
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"app"</span>]
+</span></code></pre>
+<ul>
+<li><code>ENTRYPOINT [&quot;app&quot;]</code> line can't change, meaning you have to call your service <code>app</code></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="java"></a><a href="#java" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Java</h2>
+<p>We are supporting Java 8</p>
+<p>See <a href="https://github.com/kintohub/java-examples">https://github.com/kintohub/java-examples</a> for a fully working example</p>
+<p>Dockerfile:</p>
+<pre><code class="hljs css languages- dockerfile"><span class="hljs-keyword">FROM</span> maven:<span class="hljs-number">3</span>-jdk-<span class="hljs-number">8</span>-alpine AS build
+
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span>
+<span class="hljs-comment"># Copy everything else and build</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . ./
+</span><span class="hljs-keyword">WORKDIR</span><span class="bash"> /app/httpexample
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> mvn clean compile assembly:single
+</span><span class="hljs-keyword">RUN</span><span class="bash"> mkdir /app/out
+</span><span class="hljs-keyword">RUN</span><span class="bash"> mv ./target/start-jar-with-dependencies.jar /app/out/start-jar-with-dependencies.jar
+</span>
+<span class="hljs-comment"># Runtime image</span>
+<span class="hljs-keyword">FROM</span> openjdk:<span class="hljs-number">8</span>-jre-alpine
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span><span class="hljs-keyword">COPY</span><span class="bash"> --from=build /app/out .
+</span>
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"java"</span>, <span class="hljs-string">"-jar"</span>, <span class="hljs-string">"start-jar-with-dependencies.jar"</span>]
+</span></code></pre>
+<ul>
+<li>We are using multi stage build to create lighter docker image</li>
+<li>You can modify the Dockerfile as you wish except you have to respect to put your build results in <code>/app/out</code></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="nodejs"></a><a href="#nodejs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>NodeJS</h2>
+<p>We are supporting NodeJS version 8.9.4</p>
+<p>See <a href="https://github.com/kintohub/node-examples">https://github.com/kintohub/node-examples</a> for a fully working example</p>
+<p>Dockerfile:</p>
+<pre><code class="hljs css languages- dockerfile"><span class="hljs-keyword">FROM</span> node:<span class="hljs-number">8.9</span>.<span class="hljs-number">4</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> mkdir -p app
+</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app
+</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install
+</span>
+<span class="hljs-keyword">ENV</span> PORT=<span class="hljs-number">80</span>
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"npm"</span>,<span class="hljs-string">"run"</span>,<span class="hljs-string">"prod"</span>]
+</span></code></pre>
+<ul>
+<li>We only support <code>8.9.4</code> in node, so the first line of <code>Dockerfile</code> can't change</li>
+<li><code>ENTRYPOINT</code> can be changed to any other command, it must be a command that will run the app on port <code>80</code></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="php"></a><a href="#php" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PHP</h2>
+<p>We are supporting PHP 7.2</p>
+<p>See <a href="https://github.com/kintohub/php-examples">https://github.com/kintohub/php-examples</a> for a fully working example</p>
+<p>Dockerfile:</p>
+<pre><code class="hljs css languages- dockerfile"><span class="hljs-keyword">FROM</span> php:<span class="hljs-number">7.2</span>-cli
+
+<span class="hljs-keyword">RUN</span><span class="bash"> mkdir -p app
+</span><span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span><span class="hljs-keyword">COPY</span><span class="bash"> . /app
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/<span class="hljs-built_in">local</span>/bin --filename=composer
+</span><span class="hljs-keyword">RUN</span><span class="bash"> apt-get update
+</span><span class="hljs-keyword">RUN</span><span class="bash"> apt-get install -y git
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> composer install --no-interaction
+</span>
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"php"</span>, <span class="hljs-string">"-S"</span>, <span class="hljs-string">"0.0.0.0:80"</span>]
+</span></code></pre>
+<ul>
+<li><code>ENTRYPOINT [&quot;php&quot;, &quot;-S&quot;, &quot;0.0.0.0:80&quot;]</code> line cannot change because we need you to expose your app on port 80</li>
+<li>We are using <code>composer</code> to install dependencies so you can download any package you want in here (you will need to use a <code>compose.json</code> file).</li>
+</ul>
+<p>Example composer.json:</p>
+<pre><code class="hljs">{
+    <span class="hljs-attr">"require"</span>: {
+        <span class="hljs-attr">"slim/slim"</span>: <span class="hljs-string">"^3.0"</span>
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="python"></a><a href="#python" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Python</h2>
+<p>We are supporting Python 3.6.4</p>
+<p>See <a href="https://github.com/kintohub/python-examples">https://github.com/kintohub/python-examples</a> for a fully working example</p>
+<p>Dockerfile:</p>
+<pre><code class="hljs css languages- dockerfile"><span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.6</span>.<span class="hljs-number">4</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> mkdir -p app
+</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app
+</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> pip install -r requirements.txt
+</span>
+<span class="hljs-keyword">ENV</span> FLASK_APP=hello.py
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"flask"</span>,<span class="hljs-string">"run"</span>,<span class="hljs-string">"--port"</span>, <span class="hljs-string">"80"</span>, <span class="hljs-string">"--host"</span>, <span class="hljs-string">"0.0.0.0"</span>]
+</span></code></pre>
+<ul>
+<li>You can modify the <code>ENTRYPOINT</code> line but you have to expose your app on port 80</li>
+<li>We are using <code>pip</code> for dependency management so you have to place a <code>requirements.txt</code> in your repository to allow pip to work</li>
+</ul>
+<p>Example Requirements.txt:</p>
+<pre><code class="hljs"><span class="hljs-attr">Flask</span>==<span class="hljs-number">0.12</span>.<span class="hljs-number">2</span>
+<span class="hljs-attr">MarkupSafe</span>==<span class="hljs-number">1.0</span>
+<span class="hljs-attr">Jinja2</span>==<span class="hljs-number">2.10</span>
+<span class="hljs-attr">click</span>==<span class="hljs-number">6.7</span>
+<span class="hljs-attr">itsdangerous</span>==<span class="hljs-number">0.24</span>
+<span class="hljs-attr">Werkzeug</span>==<span class="hljs-number">0.14</span>.<span class="hljs-number">1</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="ruby"></a><a href="#ruby" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ruby</h2>
+<p>We are supporting Ruby 2.5</p>
+<p>See <a href="https://github.com/kintohub/ruby-examples">https://github.com/kintohub/ruby-examples</a> for a fully working example</p>
+<p>Dockerfile:</p>
+<pre><code class="hljs css languages- dockerfile"><span class="hljs-keyword">FROM</span> ruby:<span class="hljs-number">2.5</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> mkdir -p app
+</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . /app
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> gem install bundler
+</span><span class="hljs-keyword">RUN</span><span class="bash"> bundle install
+</span><span class="hljs-keyword">RUN</span><span class="bash"> bundle package --all
+</span>
+<span class="hljs-keyword">ENV</span> PORT=<span class="hljs-number">80</span>
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">"bundle"</span>, <span class="hljs-string">"exec"</span>, <span class="hljs-string">"ruby"</span>, <span class="hljs-string">"app.rb"</span>]
+</span></code></pre>
+<ul>
+<li>You can modify the <code>Dockerfile</code> or <code>ENTRYPOINT</code> but it has to expose your app on port 80 and use the <code>/app</code> folder</li>
+<li>We are using <code>bundler</code> as dependency manager hence you will need a <code>Gemfile</code> in your repository to enable external packages</li>
+</ul>
+<p>Example Gemfile:</p>
+<pre><code class="hljs css languages- gemfile"><span class="hljs-built_in">source</span> <span class="hljs-string">'https://rubygems.org'</span>
+gem <span class="hljs-string">'sinatra'</span>
+gem <span class="hljs-string">"json"</span>, <span class="hljs-string">"~&gt; 2.1"</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/workspaces.html">← Workspaces</a><a class="docs-next button" href="/docs/release-notes.html">Release Notes →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#c-dotnet">C# / dotnet</a></li><li><a href="#go">Go</a></li><li><a href="#java">Java</a></li><li><a href="#nodejs">NodeJS</a></li><li><a href="#php">PHP</a></li><li><a href="#python">Python</a></li><li><a href="#ruby">Ruby</a></li></ul></nav></div><div class="footer-background"><div class="line"></div><div class="footerWrapper wrapper"><footer><div class="content"><div class="footer"><div class="left"><ul class="unstyled-list"></ul><h6 class="byline">Copyright © 2018 KintoHub. All rights reserved</h6></div><div class="right"><ul class="social-icons unstyled-list"><li class="social-icon"><a href="https://twitter.com/kintohub" target="_blank" rel="noopener noreferrer"><img src="/img/footer-socials-twitter.svg" alt=""/></a></li><li class="social-icon"><a href="https://github.com/kintohub" target="_blank" rel="noopener noreferrer"><img src="/img/footer-socials-github.svg" alt=""/></a></li><li class="social-icon"><a href="https://www.linkedin.com/company/13376177/" target="_blank" rel="noopener noreferrer"><img src="/img/footer-socials-linkedin.svg" alt=""/></a></li></ul><a href="/"><div class="footer-logo"><img src="/img/logo-grey-single-color.svg" alt=""/></div></a></div></div></div></footer></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                
+                apiKey: '92a5a28a80be03d1f473c1b4a6af6b33',
+                indexName: 'kintohub',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
