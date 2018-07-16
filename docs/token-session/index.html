@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Token and Session Management · KintoHub Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="KintoHub provides the ability to create sessions for all apps right of the bat. We recommend all users to create a token for all users, and this will give you many features that we are going to show here"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Token and Session Management · KintoHub Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kintohub.com/index.html"/><meta property="og:description" content="KintoHub provides the ability to create sessions for all apps right of the bat. We recommend all users to create a token for all users, and this will give you many features that we are going to show here"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/kintohub-title-text.svg" alt="KintoHub Docs"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Docs</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Docs</h3><ul><li class="navListItem"><a class="navItem" href="/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/docker-examples">Dockerfile examples</a></li><li class="navListItem"><a class="navItem" href="/docs/apidoc">How to document your code to work with KintoHub</a></li><li class="navListItem"><a class="navItem" href="/docs/kintoblocks">KintoBlocks</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/token-session">Token and Session Management</a></li><li class="navListItem"><a class="navItem" href="/docs/repositories">Git Repositories</a></li><li class="navListItem"><a class="navItem" href="/docs/kintoapps">KintoApps</a></li><li class="navListItem"><a class="navItem" href="/docs/workspaces">Workspaces</a></li><li class="navListItem"><a class="navItem" href="/docs/languages">Languages</a></li><li class="navListItem"><a class="navItem" href="/docs/release-notes">Release Notes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Dependencies</h3><ul><li class="navListItem"><a class="navItem" href="/docs/custom-params">Custom Parameters</a></li><li class="navListItem"><a class="navItem" href="/docs/environmental-parameters">Environmental Parameters</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Accounts and Billing</h3><ul><li class="navListItem"><a class="navItem" href="/docs/accounts">Accounts</a></li><li class="navListItem"><a class="navItem" href="/docs/billing">Billing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Behind The Scenes</h3><ul><li class="navListItem"><a class="navItem" href="/docs/behind-the-scenes">Behind the Scenes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Common Questions</h3><ul><li class="navListItem"><a class="navItem" href="/docs/answers">Answers</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/kintohub/kintohub-docs/edit/master/docs/token-session.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Token and Session Management</h1></header><article><div><span><p>KintoHub provides the ability to create sessions for all apps right of the bat. We recommend all users to create a token for all users, and this will give you many features that we are going to show here</p>
+<h2><a class="anchor" aria-hidden="true" id="how-to-generate-and-use-tokens"></a><a href="#how-to-generate-and-use-tokens" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to generate and use tokens</h2>
+<ol>
+<li>The client should call the following API (typically when the app first loads)</li>
+</ol>
+<pre><code class="hljs">POST api<span class="hljs-selector-class">.kintohub</span><span class="hljs-selector-class">.com</span>/auth
+BODY { <span class="hljs-string">"clientId"</span>:<span class="hljs-string">"&lt;clientid&gt;"</span>, <span class="hljs-string">"clientSecret"</span>:<span class="hljs-string">"&lt;clientsecret&gt;"</span> }
+</code></pre>
+<ol start="2">
+<li>The client will get a token back (The client can save it as part of local storage) and should send it with all the following requests by adding it as an <code>Authorization</code> header, like:</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-symbol">Authorization:</span> Bearer <span class="hljs-params">&lt;token&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="tokens-as-the-first-class-citizen"></a><a href="#tokens-as-the-first-class-citizen" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tokens as the first-class citizen</h2>
+<p>We decided to make tokens a requirement when calling any microservice. To call your microservice, it needs always to be included as an <code>Authorization</code> header shown above</p>
+<p>If a token is not attached when requesting a resource, the client will get an error response</p>
+<h3><a class="anchor" aria-hidden="true" id="what-if-i-want-a-microservice-to-have-a-public-url-that-doesn-t-require-authentication"></a><a href="#what-if-i-want-a-microservice-to-have-a-public-url-that-doesn-t-require-authentication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What if I want a microservice to have a public URL that doesn't require authentication</h3>
+<p>We don't recommend in a typical use-case to use public URLs without authentication, but it is required in some apps to have public URLs (any webhooks as an example)</p>
+<p>The answer is yes we do support public URLs, to access the endpoint you can use the following URL:</p>
+<pre><code class="hljs">public<span class="hljs-selector-class">.api</span><span class="hljs-selector-class">.kintohub</span><span class="hljs-selector-class">.com</span>/&lt;clientId&gt;/&lt;microservice&gt;
+</code></pre>
+<blockquote>
+<p>Because there is no session, the client id for the environment is needed to talk to the api, that is why the url is slightly different</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="why-should-i-use-tokens"></a><a href="#why-should-i-use-tokens" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why should I use tokens</h2>
+<p>One of the first problems we were trying to solve is how to make reusable microservices. When we were building KintoHub, we didn't want to make every microservice call the auth microservice to get the logged in user id and username</p>
+<p>We have approached it differently, every microservice that needs the username or user id will just state that it needs it using <a href="/docs/apidoc">apidoc</a> syntax and KintoHub will inject the value with your request in the header</p>
+<h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example:</h3>
+<p>Let us start first with an example to show the flow of how to save/read data from the session</p>
+<ol>
+<li><p>the user has to get a token and send it as part of the authorization header like shown above</p></li>
+<li><p>In the auth microservice, we are going to expose the userid and username</p></li>
+</ol>
+<pre><code class="hljs css languages- javascript"><span class="hljs-comment">/**
+ * ...
+ * @apiSuccess (Session) {String} auth-userId the logged in user id
+ * @apiSuccess (Session) {String} auth-username the logged in username
+ * ...
+ */</span>
+server.route({
+  <span class="hljs-attr">method</span>: <span class="hljs-string">"POST"</span>,
+  <span class="hljs-attr">path</span>: <span class="hljs-string">"/login"</span>,
+  handler(request, res) {
+    <span class="hljs-comment">// Get the user from db and make sure everything is valid</span>
+    <span class="hljs-keyword">return</span> res
+      .response({ <span class="hljs-attr">message</span>: <span class="hljs-string">"Logged in successfully"</span> })
+      .header(<span class="hljs-string">"auth-userId"</span>, <span class="hljs-number">1</span>)
+      .header(<span class="hljs-string">"auth-username"</span>, <span class="hljs-string">"KintoUser"</span>)
+      .code(<span class="hljs-number">200</span>);
+  }
+});
+</code></pre>
+<ol start="3">
+<li>In any microservice now we can require the userid and username after calling the <code>/login</code> above, and by these two lines we only will know if the user is logged in or not and his id &amp; username</li>
+</ol>
+<pre><code class="hljs css languages- javascript"><span class="hljs-comment">/**
+ * ...
+ * @apiHeader (Session) {String} {auth-userId} logged in user id
+ * @apiHeader (Session) {String} {auth-username} logged in user name
+ * ...
+ */</span>
+server.route({
+  <span class="hljs-attr">method</span>: <span class="hljs-string">"POST"</span>,
+  <span class="hljs-attr">path</span>: <span class="hljs-string">"/articles"</span>,
+  handler(request, h) {
+    <span class="hljs-keyword">const</span> userId = request.headers[<span class="hljs-string">"auth-id"</span>]; <span class="hljs-comment">// '1'</span>
+    <span class="hljs-keyword">const</span> name = request.headers[<span class="hljs-string">"auth-username"</span>]; <span class="hljs-comment">// 'KintoUser'</span>
+  }
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="write-to-the-session-data"></a><a href="#write-to-the-session-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Write to the Session Data</h2>
+<p>What is required to add a data to a session is the following</p>
+<ol>
+<li>have proper apidoc for it</li>
+</ol>
+<pre><code class="hljs">@apiSuccess (Session) {<span class="hljs-class"><span class="hljs-keyword">type</span>} &lt;microservice&gt;-<span class="hljs-title">field</span> <span class="hljs-title">description</span></span>
+</code></pre>
+<blockquote>
+<p>Note: to add data to a session you use <code>@apiSuccess (Session)</code> because you are sending data back</p>
+</blockquote>
+<blockquote>
+<p>Note: the field name <strong>must</strong> start with the microservice name</p>
+</blockquote>
+<ol start="2">
+<li>In that request you should send back the fields as headers in the response</li>
+</ol>
+<pre><code class="hljs css languages- javascript"><span class="hljs-keyword">return</span> res
+  .response(..)
+  .header(<span class="hljs-string">'&lt;microservice&gt;-field'</span>, value)
+  .code(<span class="hljs-number">200</span>)
+</code></pre>
+<blockquote>
+<p>Note: All the session data being send back as headers are going to be intercepted by KintoHub to update the session and the client will not receive them (above example if you debug that request you will not find <code>&lt;microservice&gt;-field</code> in the headers)</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="read-from-the-session-data"></a><a href="#read-from-the-session-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Read from the Session Data</h2>
+<p>What is required to read from the session is the following</p>
+<ol>
+<li>have proper apidoc for it</li>
+</ol>
+<pre><code class="hljs">@apiHeader (Session) {<span class="hljs-class"><span class="hljs-keyword">type</span>} &lt;microservice&gt;-<span class="hljs-title">field</span> <span class="hljs-title">description</span></span>
+</code></pre>
+<blockquote>
+<p>Note: add read data from a session you use <code>@apiHeader (Session)</code> because they are going to be injected in the headers</p>
+</blockquote>
+<ol start="2">
+<li>In that request, you can read the data from the headers</li>
+</ol>
+<pre><code class="hljs css languages- javascript">request.headers[<span class="hljs-string">"&lt;microservice&gt;-field"</span>];
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="optional-read-session-data"></a><a href="#optional-read-session-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional read Session Data</h3>
+<p>If you write the following in your documentation</p>
+<pre><code class="hljs">@apiHeader (Session) {<span class="hljs-class"><span class="hljs-keyword">type</span>} &lt;microservice&gt;-<span class="hljs-title">field</span> <span class="hljs-title">description</span></span>
+</code></pre>
+<p>When a request happens and <code>&lt;microservice&gt;-field</code> is <code>null</code> the endpoint is not going to get called, because the session was marked as required</p>
+<p>If you want to read the value and check if its null yourself, you need to mark it as optional</p>
+<pre><code class="hljs">@apiHeader (Session) [<span class="hljs-class"><span class="hljs-keyword">type</span>] &lt;microservice&gt;-<span class="hljs-title">field</span> <span class="hljs-title">description</span></span>
+</code></pre>
+<blockquote>
+<p><code>{type}</code> is required and <code>[type]</code> is optional</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/kintoblocks">← KintoBlocks</a><a class="docs-next button" href="/docs/repositories">Git Repositories →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#how-to-generate-and-use-tokens">How to generate and use tokens</a></li><li><a href="#tokens-as-the-first-class-citizen">Tokens as the first-class citizen</a><ul class="toc-headings"><li><a href="#what-if-i-want-a-microservice-to-have-a-public-url-that-doesn-t-require-authentication">What if I want a microservice to have a public URL that doesn't require authentication</a></li></ul></li><li><a href="#why-should-i-use-tokens">Why should I use tokens</a><ul class="toc-headings"><li><a href="#example">Example:</a></li></ul></li><li><a href="#write-to-the-session-data">Write to the Session Data</a></li><li><a href="#read-from-the-session-data">Read from the Session Data</a><ul class="toc-headings"><li><a href="#optional-read-session-data">Optional read Session Data</a></li></ul></li></ul></nav></div><div class="footer-background"><div class="line"></div><div class="footerWrapper wrapper"><footer><div class="content"><div class="footer"><div class="left"><ul class="unstyled-list"></ul><h6 class="byline">Copyright © 2018 KintoHub. All rights reserved</h6></div><div class="right"><ul class="social-icons unstyled-list"><li class="social-icon"><a href="https://twitter.com/kintohub" target="_blank" rel="noopener noreferrer"><img src="/img/footer-socials-twitter.svg" alt=""/></a></li><li class="social-icon"><a href="https://github.com/kintohub" target="_blank" rel="noopener noreferrer"><img src="/img/footer-socials-github.svg" alt=""/></a></li><li class="social-icon"><a href="https://www.linkedin.com/company/13376177/" target="_blank" rel="noopener noreferrer"><img src="/img/footer-socials-linkedin.svg" alt=""/></a></li></ul><a href="/"><div class="footer-logo"><img src="/img/logo-grey-single-color.svg" alt=""/></div></a></div></div></div></footer></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                
+                apiKey: '92a5a28a80be03d1f473c1b4a6af6b33',
+                indexName: 'kintohub',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
