@@ -8,6 +8,7 @@
 <url> <loc>https://kintohub.com/docs/apidoc</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/apidoc" /> </url>
 <url> <loc>https://kintohub.com/docs/behind-the-scenes</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/behind-the-scenes" /> </url>
 <url> <loc>https://kintohub.com/docs/billing</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/billing" /> </url>
+<url> <loc>https://kintohub.com/docs/calling-kintohub-apis</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/calling-kintohub-apis" /> </url>
 <url> <loc>https://kintohub.com/docs/connecting-a-github-organization</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/connecting-a-github-organization" /> </url>
 <url> <loc>https://kintohub.com/docs/creating-an-application</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/creating-an-application" /> </url>
 <url> <loc>https://kintohub.com/docs/custom-params</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/custom-params" /> </url>
@@ -17,6 +18,7 @@
 <url> <loc>https://kintohub.com/docs/environmental-parameters</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/environmental-parameters" /> </url>
 <url> <loc>https://kintohub.com/docs/feedback</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/feedback" /> </url>
 <url> <loc>https://kintohub.com/docs/getting-started</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/getting-started" /> </url>
+<url> <loc>https://kintohub.com/docs/instant-deployments</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/instant-deployments" /> </url>
 <url> <loc>https://kintohub.com/docs/kintoapps</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/kintoapps" /> </url>
 <url> <loc>https://kintohub.com/docs/kintoblocks</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/kintoblocks" /> </url>
 <url> <loc>https://kintohub.com/docs/languages</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/languages" /> </url>
@@ -24,8 +26,12 @@
 <url> <loc>https://kintohub.com/docs/product-roadmap</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/product-roadmap" /> </url>
 <url> <loc>https://kintohub.com/docs/release-notes</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/release-notes" /> </url>
 <url> <loc>https://kintohub.com/docs/repositories</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/repositories" /> </url>
+<url> <loc>https://kintohub.com/docs/sdk-less-framework</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/sdk-less-framework" /> </url>
+<url> <loc>https://kintohub.com/docs/serverless</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/serverless" /> </url>
+<url> <loc>https://kintohub.com/docs/session-memory</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/session-memory" /> </url>
 <url> <loc>https://kintohub.com/docs/tagging-and-deploying</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/tagging-and-deploying" /> </url>
 <url> <loc>https://kintohub.com/docs/talking-to-applications</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/talking-to-applications" /> </url>
+<url> <loc>https://kintohub.com/docs/thinking-kinto</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/thinking-kinto" /> </url>
 <url> <loc>https://kintohub.com/docs/token-session</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/token-session" /> </url>
 <url> <loc>https://kintohub.com/docs/usage-limit</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/usage-limit" /> </url>
 <url> <loc>https://kintohub.com/docs/use-during-alpha</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://kintohub.com/docs/use-during-alpha" /> </url>
